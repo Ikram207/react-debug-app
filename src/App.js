@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Header from './Header';
-import UserCard from './UserCard';
+import Header from './Header.js';
+import UserCard from './UserCard.js';
 
 function App() {
   const [users, setUsers] = useState([
