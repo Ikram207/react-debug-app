@@ -1,0 +1,36 @@
+1. Problème observé
+Un utilisateur s’affichait avec Age: undefined.
+
+Le reste de l’interface fonctionnait normalement.
+
+2. Diagnostic avec React Developer Tools
+J’ai ouvert les outils développeur dans le navigateur.
+
+Dans l’onglet Components, j’ai sélectionné le composant UserCard.
+
+J’ai vu que la prop user.age était undefined.
+
+Dans le composant parent App, j’ai vérifié que l’utilisateur concerné (Bob) n’avait pas de champ age.
+
+3. Analyse du code
+Dans le fichier App.js :
+--------
+const [users, setUsers] = useState([
+  { id: 1, name: 'Alice', age: 25 },
+  { id: 2, name: 'Bob' }, // age manquant ici
+  { id: 3, name: 'Charlie', age: 30 }
+]);
+
+
+
+Et dans UserCard.js :
+--------
+<p>Age: {user.age}</p> // Affiche "undefined" si age est absent
+4. Solution mise en place
+
+
+
+J’ai modifié UserCard.js pour ajouter une valeur par défaut :
+--------
+<p>Age: {user.age ?? 'Non spécifié'}</p>
+Ainsi, si age est manquant, le texte affiché est "Non spécifié" au lieu de "undefined".
