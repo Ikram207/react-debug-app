@@ -1,0 +1,1 @@
+J'ai un problème : lorsque je clique sur Inspecter puis sur l'onglet Components, cela reste bloqué sur 'Loading React Element Tree...' et l'arborescence ne se charge pas.
